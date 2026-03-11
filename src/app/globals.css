@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Bebas+Neue&family=Syne:wght@300;400;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #06060a;
+  --surface: #0c0c12;
+  --accent: #e8e8ff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: #dddde8;
+  font-family: 'Syne', sans-serif;
+  cursor: crosshair;
+  overflow-x: hidden;
+}
+
+/* Subtle scanlines */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.03) 3px, rgba(0,0,0,0.03) 4px);
+  pointer-events: none;
+  z-index: 9997;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 2px; }
+::-webkit-scrollbar-thumb { background: #1e1e2a; }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.7); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes logSlide {
+  from { opacity: 0; transform: translateX(5px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes glitch {
+  0%, 100% { clip-path: none; transform: none; }
+  20% { clip-path: inset(20% 0 50% 0); transform: translateX(-3px); }
+  40% { clip-path: inset(60% 0 10% 0); transform: translateX(3px); }
+  60% { clip-path: none; transform: none; }
+}
+
+@keyframes scrollPulse {
+  0%, 100% { transform: scaleY(1); opacity: 1; }
+  50% { transform: scaleY(0.6); opacity: 0.4; }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.animate-pulse-dot { animation: pulse 2s infinite; }
+.animate-fade-up { animation: fadeUp 0.7s forwards; }
+.animate-glitch { animation: glitch 0.4s infinite; }
+.scroll-line { animation: scrollPulse 2s ease-in-out infinite; }
+.log-entry { animation: logSlide 0.15s ease; }
+.twinkle { animation: twinkle 3s ease-in-out infinite; }
+
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 1px;
+  background: #1e1e2a;
+  outline: none;
+  cursor: pointer;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 10px; height: 10px;
+  background: #e8e8ff;
+  cursor: pointer;
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+}
