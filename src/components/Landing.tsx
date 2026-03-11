@@ -183,7 +183,7 @@ export default function Landing({ onLaunch }: Props) {
       {/* NAV */}
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-10 py-5"
            style={{ background: 'linear-gradient(to bottom, rgba(7,7,10,0.95), transparent)' }}>
-        <div className="font-display text-2xl tracking-[6px] text-accent">TERRARIA</div>
+        <div className="font-display text-2xl tracking-[6px] text-accent">TERRANOVA</div>
         <div className="flex gap-8 items-center">
           <span className={navLink} onClick={() => document.getElementById('how')?.scrollIntoView({behavior:'smooth'})}>How It Works</span>
           <span className={navLink} onClick={() => document.getElementById('territory')?.scrollIntoView({behavior:'smooth'})}>Territories</span>
